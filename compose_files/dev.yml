@@ -1,0 +1,25 @@
+version: '3.3'
+# docker-compose --compatibility up
+services:
+  cofacts_crawler:
+    container_name: cofacts_crawler
+    build:
+      context: ./image
+      dockerfile: dockerfile
+    image: iii/cofacts_crawler-python3.8.3:v1.0
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 500M
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1g"
+    environment:
+      TZ: "Asia/Taipei"
+      LANG: C.UTF-8
+      API_PROPERTY : "DEV"
+    volumes:
+      - ./src:/app

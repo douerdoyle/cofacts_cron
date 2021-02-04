@@ -1,0 +1,10 @@
+{
+    "settings" : {
+        "number_of_shards" : 1,
+        "number_of_replicas" : 3,
+        "max_terms_count": 10000000
+    },
+    "mappings": {
+        "properties": {}
+    }
+}
